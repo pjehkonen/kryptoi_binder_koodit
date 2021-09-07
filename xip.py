@@ -316,7 +316,7 @@ def harjoituksen_tiedostot(tunniste=None):
     if tunniste is None:
         hakemisto = "Tekstit/*.md"
 
-    if tunniste is 'bin':
+    if tunniste == 'bin':
        hakemisto = "Tekstit/*.bin"
        
     tiedostot = glob.glob(hakemisto)
@@ -617,6 +617,18 @@ def näytä_tekstit():
     for i, nimi in enumerate(sorted(tekstitiedostot)):
         print("Tiedostoindeksi: {} on {}".format(i,nimi[8:-3]))
 
+def lue_bin_tiedosto(indeksi=None):
+    if indeksi is None:
+        print("Et antanut indeksiä.\n")
+        harjoituksen_tiedostot('bin')
+        bin_viesti=""
+    else:
+        binääritiedostot = harjoituksen_tiedostot()
+        tiedosto=indeksi
+        with open(binääritiedostot[tiedosto], "r", encoding="utf_8") as file:
+            bin_viesti = "".join(file.readlines())
+     
+    return bin_viesti
 
 def lue_tiedosto_merkkijonoksi(indeksi=None, debuggaus=False):
     if indeksi is None:
