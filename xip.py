@@ -317,7 +317,7 @@ def harjoituksen_tiedostot(tunniste=None):
         hakemisto = "Tekstit/*.md"
 
     if tunniste == 'bin':
-       hakemisto = "Tekstit/*.bin"
+        hakemisto = "Tekstit/*.bin"
        
     tiedostot = glob.glob(hakemisto)
     return sorted(tiedostot)
